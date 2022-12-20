@@ -7,8 +7,13 @@ import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.Scrollable;
 import javax.swing.SwingConstants;
+
+/**
+ * Scrollable JPanel for holding a list of tasks
+ * @author Sean Calkins
+ */
 public class ListPanel extends JPanel implements Scrollable {
-    private int visibleRowCount;
+private int visibleRowCount;
    
     /**
      * Creates a new list panel to add list tasks to
@@ -20,6 +25,7 @@ public class ListPanel extends JPanel implements Scrollable {
         layout.setVgap(5);
         setLayout(layout);
         setBackground(listColor);
+        setPreferredSize(new Dimension(400,560));
 
     }
     
@@ -50,9 +56,6 @@ public class ListPanel extends JPanel implements Scrollable {
                 }
             }
         }
-
-    
-    
 }
 
     @Override

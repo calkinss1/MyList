@@ -8,6 +8,11 @@ import java.awt.Dimension;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+/**
+ * Task panel for To Do list GUI
+ * @author Puja Kumari, Sean Calkins
+ */
 public class Task extends JPanel {
     
 
@@ -20,11 +25,14 @@ public class Task extends JPanel {
         Color doneColor = new Color(156, 6, 201);
     
         private boolean checked;
-    
+
+        /**
+         * Creates new Task panel with associated index label and button to mark completed
+         */
         Task() {
             // this.setPreferredSize(new Dimension(400, 20)); // set size of task
             this.setBackground (lavender); // set background color of task
-    
+            this.setPreferredSize(new Dimension(400,20));
             this.setLayout(new BorderLayout()); // set layout of task
     
             checked = false;
@@ -50,20 +58,35 @@ public class Task extends JPanel {
             this.add(done, BorderLayout.EAST);
     
         }
-    
+        
+        /**
+         * changes the index of the task
+         * @param num number to change the index to
+         */
         public void changeIndex(int num) {
             this.index.setText(num + ""); // num to String
             this.revalidate(); // refresh
         }
     
+        /**
+         * 
+         * @return the done button
+         */
         public JButton getDone() {
             return done;
         }
     
+        /**
+         * gets the completed state of the task
+         * @return true if task was completed, false otherwise
+         */
         public boolean getState() {
             return checked;
         }
     
+        /**
+         * changes the completed state of the task and recolors to indicate task is completed
+         */
         public void changeState() {
             this.setBackground(green);
             taskName.setBackground(green);
@@ -71,6 +94,10 @@ public class Task extends JPanel {
             revalidate();
         }
 
+        /**
+         * 
+         * @author Sean Calkins
+         */
         private class DoneListener implements ActionListener{
 
             @Override
